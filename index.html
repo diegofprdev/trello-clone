@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Trello Clone</title>
+</head>
+
+<body class="bg-slate-900">
+    <nav class="bg-slate-900 border-solid border-b-2 border-blue-700 flex justify-center p-3 text-white">
+        <h3 class="text-xl">Trello Clone</h3>
+    </nav>
+    <div class="h-16 m-5 bg-slate-800 rounded-md flex justify-between">
+        <input class="bg-slate-900 w-60 pl-5 pr-5 m-3 rounded-md text-white" placeholder="Search..." type="text">
+        <button class="bg-blue-700 w-40 m-3 rounded-md shadow-lg shadow-blue-700/50 text-white"><i
+                class="fa-solid fa-plus"></i> &nbsp; Add Task</button>
+    </div>
+    <div class="grid grid-cols-4 m-5 gap-10">
+        <div class="bg-slate-800 rounded-md p-5 text-white min-h-screen">
+            <div class="flex justify-between">
+                <div>
+                    To do
+                    <span class="bg-slate-900 py-1 px-2 rounded-lg">
+                        0
+                    </span>
+                </div>
+                <button class="bg-blue-700 text-white py-1 px-2 rounded-md shadow-lg shadow-blue-700/50">
+                    <i class="fa-solid fa-plus text-sm"></i>
+                </button>
+            </div>
+            <div class="bg-slate-900 my-6 mx-1 p-4 rounded-lg">
+                <p>Design WebSite</p>
+                <p class="text-sm mt-2 text-slate-400">Lorem Ipsum is simply dummy text of the printing and typesetting
+                    industry. </p>
+                <div class="flex gap-2 mt-3">
+                    <p class="text-xs text-indigo-500 pt-1">
+                        <i class="fa-regular fa-clock"></i>
+                        Apr 12
+                    </p>
+                    <button class="bg-violet-700 px-2 py-1 text-xs rounded-md">
+                        Detail
+                    </button>
+                </div>
+                <div class="flex justify-between mt-3">
+                    <div class="flex gap-2">
+                        <button class="py-1 px-2 text-white text-xs bg-blue-700 rounded-md">
+                            Edit
+                        </button>
+                        <button class="bg-rose-600 px-2 py-1 text-xs rounded-md">
+                            Delete
+                        </button>
+                    </div>
+                    <p class="text-lime-500 text-xs pt-1">
+                        <i class="fa-solid fa-users"></i>
+                        3 users
+                    </p>
+                </div>
+            </div>
+            <div class="bg-slate-900 my-6 mx-1 p-4 rounded-lg">
+                <p>Develop FrontEnd</p>
+                <p class="text-sm mt-2 text-slate-400">Lorem Ipsum is simply dummy text of the printing and typesetting
+                    industry. </p>
+                <div class="flex gap-2 mt-3">
+                    <p class="text-xs text-indigo-500 pt-1">
+                        <i class="fa-regular fa-clock"></i>
+                        Apr 12
+                    </p>
+                    <button class="bg-violet-700 px-2 py-1 text-xs rounded-md">
+                        Detail
+                    </button>
+                </div>
+                <div class="flex justify-between mt-3">
+                    <div class="flex gap-2">
+                        <button class="py-1 px-2 text-white text-xs bg-blue-700 rounded-md">
+                            Edit
+                        </button>
+                        <button class="bg-rose-600 px-2 py-1 text-xs rounded-md">
+                            Delete
+                        </button>
+                    </div>
+                    <p class="text-lime-500 text-xs pt-1">
+                        <i class="fa-solid fa-user"></i>
+                        Diego Pineda
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-slate-800 rounded-md p-5 text-white min-h-screen">
+            <div class="flex justify-between">
+                <div>
+                    ln progress
+                    <span class="bg-slate-900 py-1 px-2 rounded-lg">
+                        0
+                    </span>
+                </div>
+                <button class="bg-blue-700 text-white py-1 px-2 rounded-md shadow-lg shadow-blue-700/50">
+                    <i class="fa-solid fa-plus text-sm"></i>
+                </button>
+            </div>
+        </div>
+        <div class="bg-slate-800 rounded-md p-5 text-white min-h-screen">
+            <div class="flex justify-between">
+                <div>
+                    ln review
+                    <span class="bg-slate-900 py-1 px-2 rounded-lg">
+                        0
+                    </span>
+                </div>
+                <button class="bg-blue-700 text-white py-1 px-2 rounded-md shadow-lg shadow-blue-700/50">
+                    <i class="fa-solid fa-plus text-sm"></i>
+                </button>
+            </div>
+        </div>
+        <div class="bg-slate-800 rounded-md p-5 text-white min-h-screen">
+            <div class="flex justify-between">
+                <div>
+                    Done
+                    <span class="bg-slate-900 py-1 px-2 rounded-lg">
+                        0
+                    </span>
+                </div>
+                <button class="bg-blue-700 text-white py-1 px-2 rounded-md shadow-lg shadow-blue-700/50">
+                    <i class="fa-solid fa-plus text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
