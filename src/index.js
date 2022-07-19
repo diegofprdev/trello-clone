@@ -11,7 +11,7 @@ const selectStatusTask = document.getElementById('status-task');
 for (let indexElement = 0; indexElement < btnsNewTask.length; indexElement++) {
     const element = btnsNewTask[indexElement];
     element.addEventListener('click', function () {
-        selectStatusTask.value = '0'
+        selectStatusTask.value = '0';
         selectStatusTask.disabled = false;
         formNewTask.classList.replace('hidden', 'inline-block');
         divFullContentPage.style.filter = 'blur(8px)';
@@ -21,8 +21,8 @@ for (let indexElement = 0; indexElement < btnsNewTask.length; indexElement++) {
 for (let indexElement = 0; indexElement < btnsNewTaskToDo.length; indexElement++) {
     const element = btnsNewTaskToDo[indexElement];
     element.addEventListener('click', function () {
-        selectStatusTask.value = '0'
-        selectStatusTask.disabled = true;
+        selectStatusTask.value = '0';
+        selectStatusTask.disabled = false;
         formNewTask.classList.replace('hidden', 'inline-block');
         divFullContentPage.style.filter = 'blur(8px)';
     });
@@ -32,7 +32,7 @@ for (let indexElement = 0; indexElement < btnsNewTaskInProgress.length; indexEle
     const element = btnsNewTaskInProgress[indexElement];
     element.addEventListener('click', function () {
         selectStatusTask.value = '1';
-        selectStatusTask.disabled = true;
+        selectStatusTask.disabled = false;
         formNewTask.classList.replace('hidden', 'inline-block');
         divFullContentPage.style.filter = 'blur(8px)';
     });
@@ -42,7 +42,7 @@ for (let indexElement = 0; indexElement < btnsNewTaskInReview.length; indexEleme
     const element = btnsNewTaskInReview[indexElement];
     element.addEventListener('click', function () {
         selectStatusTask.value = '2';
-        selectStatusTask.disabled = true;
+        selectStatusTask.disabled = false;
         formNewTask.classList.replace('hidden', 'inline-block');
         divFullContentPage.style.filter = 'blur(8px)';
     });
@@ -52,7 +52,7 @@ for (let indexElement = 0; indexElement < btnNewTaskDone.length; indexElement++)
     const element = btnNewTaskDone[indexElement];
     element.addEventListener('click', function () {
         selectStatusTask.value = '3';
-        selectStatusTask.disabled = true;
+        selectStatusTask.disabled = false;
         formNewTask.classList.replace('hidden', 'inline-block');
         divFullContentPage.style.filter = 'blur(8px)';
     });
