@@ -30,9 +30,8 @@ function updateTaskForStatus({ tasks = [], status = '0' }) {
     const formNewTask = document.getElementById('form-new-task');
 
     divListOfTask.innerHTML = '';
-
     tasks.forEach(task => {
-        const elementTask = `<div id=${task.id} class="bg-slate-900 my-6 mx-1 p-4 rounded-lg">
+        const elementTask = `<div style="cursor:grab;" id="${task.id}" status="${task.status}" draggable="true" ondragstart="dragStart(event)" ondragleave="dragLeave(event)" class="bg-slate-900 my-6 mx-1 p-4 rounded-lg">
         <p>${task.title}</p>
         <p class="text-sm mt-2 text-slate-400">${task.description}</p>
         <div class="flex gap-2 mt-3">
@@ -78,7 +77,6 @@ function updateTaskForStatus({ tasks = [], status = '0' }) {
 
 }
 
-dateFormatter();
 
 
 

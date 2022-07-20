@@ -43,7 +43,7 @@
                             <i class="fa-solid fa-plus text-sm"></i>
                         </button>
                     </div>
-                    <div style="height: 1200px;" id="tasks-list-0" class="p-2 mt-2 overflow-y-auto">
+                    <div style="height: 1200px;" id="tasks-list-0" status="0" ondrop="drop(event)" ondragover="allowDrop(event)" class="p-2 mt-2 overflow-y-auto">
                     </div>
                     <div class="pt-5 p-2 flex justify-between">
                         <div>
@@ -69,7 +69,7 @@
                             <i class="fa-solid fa-plus text-sm"></i>
                         </button>
                     </div>
-                    <div style="height: 1200px;" id="tasks-list-1" class="p-2 mt-2 overflow-y-auto">
+                    <div style="height: 1200px;" id="tasks-list-1" status="1" ondrop="drop(event)" ondragover="allowDrop(event)" class="p-2 mt-2 overflow-y-auto">
                     </div>
                     <div class="pt-5 p-2 flex justify-between">
                         <div>
@@ -95,7 +95,7 @@
                             <i class="fa-solid fa-plus text-sm"></i>
                         </button>
                     </div>
-                    <div style="height: 1200px;" id="tasks-list-2" class="p-2 mt-2 overflow-y-auto">
+                    <div style="height: 1200px;" id="tasks-list-2" status="2" ondrop="drop(event)" ondragover="allowDrop(event)" class="p-2 mt-2 overflow-y-auto">
                     </div>
                     <div class="pt-5 p-2 flex justify-between">
                         <div>
@@ -121,7 +121,7 @@
                             <i class="fa-solid fa-plus text-sm"></i>
                         </button>
                     </div>
-                    <div style="height: 1200px;" id="tasks-list-3" class="p-2 mt-2 overflow-y-auto">
+                    <div style="height: 1200px;" id="tasks-list-3" status="3" ondrop="drop(event)" ondragover="allowDrop(event)" class="p-2 mt-2 overflow-y-auto">
                     </div>
                     <div class="pt-5 p-2 flex justify-between">
                         <div>
@@ -195,6 +195,11 @@
     </div>
 
     <script src="./src/index.js"></script>
+    <script type="module">
+        import { actions } from './src/task/actions.js';
+        window.updateStatusTask = actions.updateStatusTask;
+    </script>
+    <script src="./src/task/draggable.js"></script>
     <script type="module" src="./src/task/index.js"></script>
 </body>
 
