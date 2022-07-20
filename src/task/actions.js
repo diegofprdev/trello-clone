@@ -10,6 +10,12 @@ export const actions = {
             ID += 1;
             resolve(TASKS.filter(task => task.status === newTask.status))
         });
+    },
+    updateStatusTask: function ({ id = '', status = '0'} = {}) {
+        const task = TASKS.find(task => task.id === Number(id));
+        const taskIndex = TASKS.indexOf(task);
+        task.status = status;
+        TASKS[taskIndex] = task;
     }
 }
 
