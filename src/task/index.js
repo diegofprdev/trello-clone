@@ -3,7 +3,17 @@ import { updateTaskForStatus } from './resources/DOM.js';
 
 const formCreateTask = document.getElementById('create-task');
 
-const { createTask } = actions;
+const { createTask, getTasks } = actions;
+
+window.addEventListener('load', function(e) {
+    e.preventDefault();
+
+    const tasks = getTasks();
+
+    tasks.forEach((tasksByStatus, index) => {
+        updateTaskForStatus({ tasks: tasksByStatus, status: index });
+    })
+});
 
 formCreateTask.addEventListener('submit', function (e) {
     e.preventDefault();
