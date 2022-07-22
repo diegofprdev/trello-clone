@@ -10,8 +10,8 @@ window.addEventListener('load', function(e) {
 
     const tasks = getTasks();
 
-    tasks.forEach((tasksByStatus, index) => {
-        updateTaskForStatus({ tasks: tasksByStatus, status: index });
+    tasks.forEach(({ tasks, status }) => {
+        updateTaskForStatus({ tasks, status });
     })
 });
 
@@ -32,6 +32,9 @@ formCreateTask.addEventListener('submit', function (e) {
             updateTaskForStatus({ tasks, status: task.status })
         });
 });
+
+
+
 
 
 

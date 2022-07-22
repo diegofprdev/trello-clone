@@ -23,7 +23,7 @@ const CardTask = ({ task = {} } = {}) => {
             <button class="py-1 px-2 text-white text-xs bg-blue-700 rounded-md">
                 Edit
             </button>
-            <button class="bg-rose-600 px-2 py-1 text-xs rounded-md">
+            <button onclick="deleteTaskDOM('${task.id}','${task.title}')" class="bg-rose-600 px-2 py-1 text-xs rounded-md">
                 Delete
             </button>
         </div>

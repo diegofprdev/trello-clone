@@ -11,10 +11,22 @@ export const actions = {
         const tasksDone = TASKS.filter(task => task.status === '3');
 
         return [
-            tasksToDo,
-            tasksInProgress,
-            tasksInReview,
-            tasksDone
+            {
+                tasks: tasksToDo,
+                status : '0'
+            },
+            {
+                tasks: tasksInProgress,
+                status : '1'
+            },
+            {
+                tasks: tasksInReview,
+                status : '2'
+            },
+            {
+                tasks: tasksDone,
+                status : '3'
+            },
         ]
     },
     createTask: function ({ newTask = {} } = {}) {
@@ -31,6 +43,20 @@ export const actions = {
         task.status = status;
         TASKS[taskIndex] = task;
         localStorage.setItem('tasks', JSON.stringify(TASKS));
+    },
+    deleteTask: function({ id = ''} = {}) {
+        const task = TASKS.find(task => task.id === id);
+        let status = '0';
+        if(task) {
+            const taskIndex = TASKS.indexOf(task);
+            TASKS.splice(taskIndex, 1);
+            localStorage.setItem('tasks', JSON.stringify(TASKS));
+            status = task.status;
+        }
+
+        const tasks = TASKS.filter(task => task.status === status);
+
+        return { tasks , status };
     }
 }
 
