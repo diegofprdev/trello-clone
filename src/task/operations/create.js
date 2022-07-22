@@ -1,19 +1,9 @@
-import { actions } from './actions.js';
-import { updateTaskForStatus } from './resources/DOM.js';
+import { actions } from '../actions.js';
+import { updateTaskForStatus } from '../resources/DOM.js';
 
 const formCreateTask = document.getElementById('create-task');
 
-const { createTask, getTasks } = actions;
-
-window.addEventListener('load', function(e) {
-    e.preventDefault();
-
-    const tasks = getTasks();
-
-    tasks.forEach(({ tasks, status }) => {
-        updateTaskForStatus({ tasks, status });
-    })
-});
+const { createTask } = actions;
 
 formCreateTask.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -32,12 +22,3 @@ formCreateTask.addEventListener('submit', function (e) {
             updateTaskForStatus({ tasks, status: task.status })
         });
 });
-
-
-
-
-
-
-
-
-
