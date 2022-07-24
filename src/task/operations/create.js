@@ -1,5 +1,5 @@
-import { actions } from './actions.js';
-import { updateTaskForStatus } from './resources/DOM.js';
+import { actions } from '../actions.js';
+import { updateTaskForStatus } from '../resources/DOM.js';
 
 const formCreateTask = document.getElementById('create-task');
 
@@ -22,9 +22,3 @@ formCreateTask.addEventListener('submit', function (e) {
             updateTaskForStatus({ tasks, status: task.status })
         });
 });
-
-
-
-
-
-
