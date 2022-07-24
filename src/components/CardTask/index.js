@@ -20,7 +20,7 @@ const CardTask = ({ task = {} } = {}) => {
     </div>
     <div class="flex justify-between mt-3">
         <div class="flex gap-2">
-            <button class="py-1 px-2 text-white text-xs bg-blue-700 rounded-md">
+            <button onclick="updateTaskDOM('${task.id}')" class="py-1 px-2 text-white text-xs bg-blue-700 rounded-md">
                 Edit
             </button>
             <button onclick="deleteTaskDOM('${task.id}','${task.title}')" class="bg-rose-600 px-2 py-1 text-xs rounded-md">

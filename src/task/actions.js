@@ -40,6 +40,46 @@ export const actions = {
             resolve(TASKS.filter(task => task.status === newTask.status))
         });
     },
+    updateTask: function ({ taskUpdated = {}} = {}) {
+
+        const task = TASKS.find(task => task.id === taskUpdated.id);
+        const oldStatus = task.status;
+        const newStatus = taskUpdated.status;
+        const listOfTaskToRender = [];
+
+        if(task) {
+            const taskIndex = TASKS.indexOf(task);
+
+            task.title = taskUpdated.title;
+            task.description = taskUpdated.description;
+            task.user = taskUpdated.user;
+            task.status = taskUpdated.status;
+            task.date = taskUpdated.date;
+
+            TASKS[taskIndex] = task;
+            localStorage.setItem('tasks', JSON.stringify(TASKS));
+
+            if(oldStatus === newStatus) {
+
+                const tasks = TASKS.filter(task => task.status === oldStatus);
+                listOfTaskToRender.push({
+                    tasks,
+                    status : oldStatus
+                })
+            }
+            else {
+
+                const tasksOldStatus = TASKS.filter(task => task.status === oldStatus);
+                const tasksNewStatus = TASKS.filter(task => task.status === newStatus);
+
+                listOfTaskToRender.push({ tasks : tasksOldStatus, status : oldStatus });
+                listOfTaskToRender.push({ tasks : tasksNewStatus, status : newStatus });
+            }
+        }
+
+        return listOfTaskToRender;
+
+    },
     updateStatusTask: function ({ id = '', status = '0'} = {}) {
         const task = TASKS.find(task => task.id === id);
         const taskIndex = TASKS.indexOf(task);
