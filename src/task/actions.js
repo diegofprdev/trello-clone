@@ -29,6 +29,9 @@ export const actions = {
             },
         ]
     },
+    getTask: function({ id = ''} = {}) {
+        return TASKS.find(task => task.id === id);
+    },
     createTask: function ({ newTask = {} } = {}) {
         return new Promise((resolve, reject) => {
             newTask.id = getId();

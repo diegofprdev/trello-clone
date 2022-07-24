@@ -14,7 +14,7 @@ const CardTask = ({ task = {} } = {}) => {
             <i class="fa-regular fa-clock"></i>
             ${hourFormatter({ date: task.date })}
         </p>
-        <button class="bg-violet-700 px-2 py-1 text-xs rounded-md">
+        <button onclick="getTaskDOM('${task.id}')" class="bg-violet-700 px-2 py-1 text-xs rounded-md">
             Detail
         </button>
     </div>

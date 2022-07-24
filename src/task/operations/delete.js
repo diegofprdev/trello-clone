@@ -1,4 +1,3 @@
-const divFullContentPage = document.getElementById('full-content-page');
 const divModalDeleteTask = document.getElementById('modal-delete-task');
 const spanTitleTaskDelete = document.getElementById('title-task-delete');
 const btnCloseModalDeleteTask = document.getElementById('close-modal-delete-task');
@@ -26,7 +25,7 @@ function deleteTaskDOM(id, title) {
         const { tasks, status } = window.parent.deleteTask({ id });
 
         if (tasks) {
-            window.parent.updateTaskForStatusDOM({ tasks, status })
+            window.parent.updateTaskForStatusDOM({ tasks, status });
 
             divModalDeleteTask.classList.replace('inline-block', 'hidden');
             divFullContentPage.style.filter = 'none';
