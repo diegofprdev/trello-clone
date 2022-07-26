@@ -13,23 +13,23 @@ export const actions = {
         return [
             {
                 tasks: tasksToDo,
-                status : '0'
+                status: '0'
             },
             {
                 tasks: tasksInProgress,
-                status : '1'
+                status: '1'
             },
             {
                 tasks: tasksInReview,
-                status : '2'
+                status: '2'
             },
             {
                 tasks: tasksDone,
-                status : '3'
+                status: '3'
             },
         ]
     },
-    getTask: function({ id = ''} = {}) {
+    getTask: function ({ id = '' } = {}) {
         return TASKS.find(task => task.id === id);
     },
     createTask: function ({ newTask = {} } = {}) {
@@ -40,14 +40,14 @@ export const actions = {
             resolve(TASKS.filter(task => task.status === newTask.status))
         });
     },
-    updateTask: function ({ taskUpdated = {}} = {}) {
+    updateTask: function ({ taskUpdated = {} } = {}) {
 
         const task = TASKS.find(task => task.id === taskUpdated.id);
         const oldStatus = task.status;
         const newStatus = taskUpdated.status;
         const listOfTaskToRender = [];
 
-        if(task) {
+        if (task) {
             const taskIndex = TASKS.indexOf(task);
 
             task.title = taskUpdated.title;
@@ -59,12 +59,12 @@ export const actions = {
             TASKS[taskIndex] = task;
             localStorage.setItem('tasks', JSON.stringify(TASKS));
 
-            if(oldStatus === newStatus) {
+            if (oldStatus === newStatus) {
 
                 const tasks = TASKS.filter(task => task.status === oldStatus);
                 listOfTaskToRender.push({
                     tasks,
-                    status : oldStatus
+                    status: oldStatus
                 })
             }
             else {
@@ -72,25 +72,25 @@ export const actions = {
                 const tasksOldStatus = TASKS.filter(task => task.status === oldStatus);
                 const tasksNewStatus = TASKS.filter(task => task.status === newStatus);
 
-                listOfTaskToRender.push({ tasks : tasksOldStatus, status : oldStatus });
-                listOfTaskToRender.push({ tasks : tasksNewStatus, status : newStatus });
+                listOfTaskToRender.push({ tasks: tasksOldStatus, status: oldStatus });
+                listOfTaskToRender.push({ tasks: tasksNewStatus, status: newStatus });
             }
         }
 
         return listOfTaskToRender;
 
     },
-    updateStatusTask: function ({ id = '', status = '0'} = {}) {
+    updateStatusTask: function ({ id = '', status = '0' } = {}) {
         const task = TASKS.find(task => task.id === id);
         const taskIndex = TASKS.indexOf(task);
         task.status = status;
         TASKS[taskIndex] = task;
         localStorage.setItem('tasks', JSON.stringify(TASKS));
     },
-    deleteTask: function({ id = ''} = {}) {
+    deleteTask: function ({ id = '' } = {}) {
         const task = TASKS.find(task => task.id === id);
         let status = '0';
-        if(task) {
+        if (task) {
             const taskIndex = TASKS.indexOf(task);
             TASKS.splice(taskIndex, 1);
             localStorage.setItem('tasks', JSON.stringify(TASKS));
@@ -99,7 +99,76 @@ export const actions = {
 
         const tasks = TASKS.filter(task => task.status === status);
 
-        return { tasks , status };
+        return { tasks, status };
+    },
+    searchTasks: function ({ keyword = '', status = '0' } = {}) {
+
+        const keywordToLowerCase = keyword.toLowerCase();
+
+        if (status === '-1') {
+
+            let tasksToDo = [];
+            let tasksInProgress = [];
+            let tasksInReview = [];
+            let tasksDone = [];
+
+            if (keyword !== '') {
+
+                tasksToDo = TASKS.filter(task => task.title.toLowerCase().includes(keywordToLowerCase) && task.status === '0');
+                tasksInProgress = TASKS.filter(task => task.title.toLowerCase().includes(keywordToLowerCase) && task.status === '1');
+                tasksInReview = TASKS.filter(task => task.title.toLowerCase().includes(keywordToLowerCase) && task.status === '2');
+                tasksDone = TASKS.filter(task => task.title.toLowerCase().includes(keywordToLowerCase) && task.status === '3');
+            }
+            else {
+
+                tasksToDo = TASKS.filter(task => task.status === '0');
+                tasksInProgress = TASKS.filter(task => task.status === '1');
+                tasksInReview = TASKS.filter(task => task.status === '2');
+                tasksDone = TASKS.filter(task => task.status === '3');
+
+            }
+
+            return [
+                {
+                    tasks: tasksToDo,
+                    status: '0'
+                },
+                {
+                    tasks: tasksInProgress,
+                    status: '1'
+                },
+                {
+                    tasks: tasksInReview,
+                    status: '2'
+                },
+                {
+                    tasks: tasksDone,
+                    status: '3'
+                },
+            ]
+        }
+        else {
+
+            let tasks = [];
+
+            if(keyword !== '') {
+
+                tasks = TASKS.filter(task => task.title.toLowerCase().includes(keywordToLowerCase) && task.status === status);
+
+            }
+            else {
+
+                tasks = TASKS.filter(task => task.status === status);
+
+            }
+
+            return [
+                {
+                    tasks,
+                    status
+                }
+            ]
+        }
     }
 }
 
